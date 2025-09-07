@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Strengths" %>
+
+<h1>Strengths</h1>
+
+<div id="strengths">
+  <% @strengths.each do |strength| %>
+    <%= render strength %>
+  <% end %>
+</div>
+
+<div class="nav-links">
+  <%= link_to "New strength", new_strength_path, class: "button" %>
+  <%= link_to "Back to Clients", clients_path, class: "button" %>
+</div>

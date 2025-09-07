@@ -32,6 +32,16 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <h3>Strengths</h3>
+    <%= form.collection_check_boxes :strength_ids, Strength.all, :id, :name do |b| %>
+      <div class="form-check">
+        <%= b.check_box(class: "form-check-input") %>
+        <%= b.label(class: "form-check-label") { b.text } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit class: "button" %>
   </div>
 <% end %>

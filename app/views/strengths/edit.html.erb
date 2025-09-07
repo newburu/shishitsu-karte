@@ -1,0 +1,12 @@
+<% content_for :title, "Editing strength" %>
+
+<h1>Editing strength</h1>
+
+<%= render "form", strength: @strength %>
+
+<br>
+
+<div>
+  <%= link_to "Show this strength", @strength %> |
+  <%= link_to "Back to strengths", strengths_path %>
+</div>

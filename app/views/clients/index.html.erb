@@ -1,16 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Clients" %>
 
-<h1>Clients</h1>
-
-<div id="clients">
-  <% @clients.each do |client| %>
-    <%= render client %>
-    <p>
-      <%= link_to "Show this client", client %>
-    </p>
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-</div>
 
-<%= link_to "New client", new_client_path %>
+  <div class="flex justify-between items-center mb-5">
+    <h1 class="text-4xl font-bold">Clients</h1>
+    <%= link_to "New client", new_client_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <div id="clients" class="min-w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <% @clients.each do |client| %>
+      <div class="p-5 bg-white rounded-lg shadow">
+        <%= render client %>
+        <%= link_to "Show this client", client, class: "mt-3 inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>

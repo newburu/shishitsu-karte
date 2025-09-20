@@ -34,10 +34,10 @@
     <h3 class="block text-gray-700 text-sm font-bold mb-2">Strengths</h3>
     <div class="grid grid-cols-2 gap-2">
       <%= form.collection_check_boxes :strength_ids, Strength.all, :id, :name do |b| %>
-        <div class="flex items-center">
+        <%= b.label class: "flex items-center p-2 rounded-lg hover:bg-gray-100 cursor-pointer" do %>
           <%= b.check_box(class: "h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500") %>
-          <%= b.label(class: "ml-2 block text-sm text-gray-900") { b.text } %>
-        </div>
+          <span class="ml-2 text-sm text-gray-900"><%= b.text %></span>
+        <% end %>
       <% end %>
     </div>
   </div>

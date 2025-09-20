@@ -1,9 +1,8 @@
-<%= form_with(model: client) do |form| %>
+<%= form_with(model: client, class: "w-full max-w-lg bg-white p-8 rounded-lg shadow-md") do |form| %>
   <% if client.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
-
-      <ul>
+    <div class="mb-4 rounded-lg bg-red-50 p-4 text-sm text-red-700" role="alert">
+      <h2 class="font-bold"><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+      <ul class="mt-2 list-disc list-inside">
         <% client.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,37 +10,40 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="mb-4">
+    <%= form.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :email, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_field :phone_number %>
+  <div class="mb-4">
+    <%= form.label :phone_number, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :phone_number, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div>
-    <%= form.label :memo, style: "display: block" %>
-    <%= form.textarea :memo %>
+  <div class="mb-4">
+    <%= form.label :memo, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.textarea :memo, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 4 %>
   </div>
 
-  <div>
-    <h3>Strengths</h3>
-    <%= form.collection_check_boxes :strength_ids, Strength.all, :id, :name do |b| %>
-      <div class="form-check">
-        <%= b.check_box(class: "form-check-input") %>
-        <%= b.label(class: "form-check-label") { b.text } %>
-      </div>
-    <% end %>
+  <div class="mb-4">
+    <h3 class="block text-gray-700 text-sm font-bold mb-2">Strengths</h3>
+    <div class="grid grid-cols-2 gap-2">
+      <%= form.collection_check_boxes :strength_ids, Strength.all, :id, :name do |b| %>
+        <div class="flex items-center">
+          <%= b.check_box(class: "h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500") %>
+          <%= b.label(class: "ml-2 block text-sm text-gray-900") { b.text } %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex items-center justify-between">
+    <%= form.submit class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer" %>
+    <%= link_to "Back to clients", clients_path, class: "inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800" %>
   </div>
 <% end %>

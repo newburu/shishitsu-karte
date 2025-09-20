@@ -1,22 +1,21 @@
-<div id="<%= dom_id client %>">
-  <p>
-    <strong>Name:</strong>
-    <%= client.name %>
-  </p>
+<div id="<%= dom_id client %>" class="space-y-2">
+  <div>
+    <span class="font-medium text-gray-500">Name:</span>
+    <span class="text-gray-900"><%= client.name %></span>
+  </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= client.email %>
-  </p>
+  <div>
+    <span class="font-medium text-gray-500">Email:</span>
+    <span class="text-gray-900"><%= client.email %></span>
+  </div>
 
-  <p>
-    <strong>Phone number:</strong>
-    <%= client.phone_number %>
-  </p>
+  <div>
+    <span class="font-medium text-gray-500">Phone:</span>
+    <span class="text-gray-900"><%= client.phone_number %></span>
+  </div>
 
-  <p>
-    <strong>Memo:</strong>
-    <%= client.memo %>
-  </p>
-
+  <div>
+    <span class="font-medium text-gray-500">Memo:</span>
+    <p class="text-gray-900 bg-gray-50 p-2 rounded"><%= client.memo %></p>
+  </div>
 </div>
